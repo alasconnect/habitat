@@ -9,6 +9,7 @@ This file is used to list changes made in each version of the habitat cookbook.
 * Fixed bug introduced by transition to remote_sup cli option. Needed an additional property to specify the http port for the supervisor
 * Moved version pins and shared code into habitat_shared library to reduce duplication of code
 * Update Linux Launcher to 8659 to correspond to habitat >0.65.0
+* Updated habitat and corresponding packages for 0.72.0
 
 <!-- latest_release -->
 
