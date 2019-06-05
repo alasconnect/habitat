@@ -73,6 +73,8 @@ describe 'test::sup' do
             },
             Service: {
               ExecStart: '/bin/hab sup run --listen-gossip 0.0.0.0:7998 --listen-http 0.0.0.0:7999 --peer 127.0.0.2 --peer 127.0.0.3',
+              ExecStop: '/bin/hab sup term',
+              KillMode: 'process',
               Restart: 'on-failure',
             },
             Install: {

@@ -35,6 +35,7 @@ class Chef
       property :hab_channel, String
       property :auto_update, [true, false], default: false
       property :auth_token, String
+      property :systemd_options, Hash
 
       action :run do
         hab_install new_resource.name

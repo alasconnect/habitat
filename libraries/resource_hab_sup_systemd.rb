@@ -29,17 +29,22 @@ class Chef
         super()
 
         systemd_unit 'hab-sup.service' do
-          content(Unit: {
-                    Description: 'The Habitat Supervisor',
-                  },
-                  Service: {
-                    Environment: ("HAB_AUTH_TOKEN=#{new_resource.auth_token}" if new_resource.auth_token),
-                    ExecStart: "/bin/hab sup run #{exec_start_options}",
-                    Restart: 'on-failure',
-                  }.compact,
-                  Install: {
-                    WantedBy: 'default.target',
-                  })
+          content(Chef::Mixin::DeepMerge.hash_only_merge!(
+            {
+              Unit: {
+                Description: 'The Habitat Supervisor',
+              },
+              Service: {
+                Environment: ("HAB_AUTH_TOKEN=#{new_resource.auth_token}" if new_resource.auth_token),
+                ExecStart: "/bin/hab sup run #{exec_start_options}",
+                ExecStop: '/bin/hab sup term',
+                KillMode: 'process',
+                Restart: 'on-failure',
+              }.compact,
+              Install: {
+                WantedBy: 'default.target',
+              },
+            }, new_resource.systemd_options))
           action :create
         end
 
