@@ -56,6 +56,7 @@ action :install do
 
     powershell_script 'installing from archive' do
       code <<-EOH
+      Remove-Item -Path C:/habitat -Force -Recurse -ErrorAction Ignore
       Move-Item -Path #{extracted_path} -Destination C:/habitat -Force
       EOH
     end
@@ -117,6 +118,7 @@ action :upgrade do
 
     powershell_script 'installing from archive' do
       code <<-EOH
+      Remove-Item -Path C:/habitat -Force -Recurse -ErrorAction Ignore
       Move-Item -Path #{extracted_path} -Destination C:/habitat -Force
       EOH
     end
