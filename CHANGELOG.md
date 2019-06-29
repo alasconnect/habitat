@@ -10,6 +10,7 @@ This file is used to list changes made in each version of the habitat cookbook.
 * Moved version pins and shared code into habitat_shared library to reduce duplication of code
 * Update Linux Launcher to 8659 to correspond to habitat >0.65.0
 * Updated habitat and corresponding packages for 0.72.0
+* Updated for Habitat 0.75.0
 
 <!-- latest_release -->
 
