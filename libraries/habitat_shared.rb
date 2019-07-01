@@ -16,13 +16,18 @@
 
 module Habitat
   module Shared
-    HAB_VERSION = '0.79.1'.freeze
+    LINUX_HAB_VERSION = '0.79.1'.freeze
+    WINDOWS_HAB_VERSION = '0.72.0'.freeze
     LINUX_LAUNCHER_VERSION = '10180'.freeze
-    WINDOWS_LAUNCHER_VERSION = '10182'.freeze
+    WINDOWS_LAUNCHER_VERSION = '9106'.freeze
     WINDOWS_SERVICE_VERSION = '0.3.1'.freeze
 
     def hab_version
-      HAB_VERSION
+      if platform_family?('windows')
+        WINDOWS_HAB_VERSION
+      else
+        LINUX_HAB_VERSION
+      end
     end
 
     def hab_launcher_version

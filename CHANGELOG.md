@@ -3,6 +3,11 @@
 This file is used to list changes made in each version of the habitat cookbook.
 <!-- latest_release unreleased -->
 
+## 0.79.2
+
+- Rolled back windows to 0.72.0 to work around census bugs
+- Added custom systemd options
+
 <!-- latest_release -->
 ## 0.79.1 (2019-04-26)
 
